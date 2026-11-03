@@ -1,0 +1,267 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CINEMA - Đặt vé xem phim</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="/script.js" defer></script>
+</head>
+<body>
+
+<header class="header">
+    <div class="container header-content">
+        <a href="#" class="logo" data-page="home">CINEMA</a>
+
+        <nav class="navigation">
+            <a href="#" data-page="home">Trang chủ</a>
+            <a href="#now-showing" id="navMovies">Phim</a>
+            <a href="#" id="navSchedule">Lịch chiếu</a>
+            <a href="#footer" id="navCinema">Rạp chiếu</a>
+        </nav>
+
+        <div id="guestMenu">
+            <button type="button" class="btn btn-red"
+                    data-page="login">
+                Đăng nhập
+            </button>
+        </div>
+
+        <div id="userMenu" class="user-menu hidden">
+            <button type="button" id="userButton"
+                    class="user-button">
+                👤 <span id="welcomeUser"></span> ▾
+            </button>
+
+            <div id="dropdown" class="dropdown hidden">
+                <button type="button" data-page="profile">
+                    Thông tin tài khoản
+                </button>
+                <button type="button" data-page="tickets">
+                    Vé của tôi
+                </button>
+                <button type="button" id="logoutButton">
+                    Đăng xuất
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+
+    <!-- TRANG CHỦ -->
+    <section id="home" class="page">
+        <div class="container">
+
+            <div class="banner">
+                <div class="banner-content">
+                    <h1>PHIM NỔI BẬT</h1>
+                    <p>
+                        Khám phá những bộ phim hấp dẫn nhất.
+                        Đặt vé ngay hôm nay để trải nghiệm
+                        điện ảnh tuyệt vời!
+                    </p>
+
+                    <div class="banner-buttons">
+                        <button type="button" class="btn btn-red"
+                                id="bannerBooking">
+                            Đặt vé ngay
+                        </button>
+                        <button type="button" class="btn btn-outline"
+                                id="trailerButton">
+                            Xem trailer
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <section class="movie-section" id="now-showing">
+                <h2>PHIM ĐANG CHIẾU ( TUẦN NÀY )</h2>
+                <div class="movie-grid" id="nowShowingMovies">
+                    <p>Đang tải phim...</p>
+                </div>
+            </section>
+
+            <section class="movie-section" id="upcoming">
+                <h2>PHIM SẮP CHIẾU ( TUẦN SAU )</h2>
+                <div class="movie-grid" id="upcomingMovies">
+                    <p>Đang tải phim...</p>
+                </div>
+            </section>
+
+        </div>
+    </section>
+
+    <!-- ĐĂNG NHẬP -->
+    <section id="login" class="page hidden">
+        <div class="auth-container">
+            <h1 class="auth-logo">CINEMA</h1>
+            <h2>Đăng nhập</h2>
+            <p class="auth-description">
+                Chào mừng bạn quay trở lại!
+            </p>
+
+            <form id="loginForm">
+                <label for="loginEmail">Email</label>
+                <input type="email" id="loginEmail"
+                       placeholder="Nhập email"
+                       autocomplete="email" required>
+
+                <label for="loginPassword">Mật khẩu</label>
+                <input type="password" id="loginPassword"
+                       placeholder="Nhập mật khẩu"
+                       autocomplete="current-password" required>
+
+                <button type="button" class="text-link forgot-link"
+                        data-page="forgot">
+                    Quên mật khẩu?
+                </button>
+
+                <p id="loginError" class="form-message"></p>
+
+                <button type="submit" class="btn btn-red full-width">
+                    Đăng nhập
+                </button>
+            </form>
+
+            <p class="auth-bottom">
+                Chưa có tài khoản?
+                <button type="button" class="text-link"
+                        data-page="register">
+                    Đăng ký ngay
+                </button>
+            </p>
+        </div>
+    </section>
+
+    <!-- ĐĂNG KÝ -->
+    <section id="register" class="page hidden">
+        <div class="auth-container">
+            <h1 class="auth-logo">CINEMA</h1>
+            <h2>Đăng ký tài khoản</h2>
+            <p class="auth-description">
+                Tạo tài khoản để đặt vé xem phim.
+            </p>
+
+            <form id="registerForm">
+                <label for="registerName">Họ và tên</label>
+                <input type="text" id="registerName"
+                       maxlength="100" autocomplete="name" required>
+
+                <label for="registerEmail">Email</label>
+                <input type="email" id="registerEmail"
+                       maxlength="255" autocomplete="email" required>
+
+                <label for="registerPassword">Mật khẩu</label>
+                <input type="password" id="registerPassword"
+                       minlength="8" autocomplete="new-password" required>
+
+                <label for="confirmPassword">Xác nhận mật khẩu</label>
+                <input type="password" id="confirmPassword"
+                       minlength="8" autocomplete="new-password" required>
+
+                <label class="terms">
+                    <input type="checkbox" id="agreeTerms" required>
+                    Tôi đồng ý với điều khoản sử dụng
+                </label>
+
+                <p id="registerError" class="form-message"></p>
+
+                <button type="submit" class="btn btn-red full-width">
+                    Đăng ký
+                </button>
+            </form>
+
+            <p class="auth-bottom">
+                Đã có tài khoản?
+                <button type="button" class="text-link"
+                        data-page="login">
+                    Đăng nhập ngay
+                </button>
+            </p>
+        </div>
+    </section>
+
+    <!-- QUÊN MẬT KHẨU -->
+    <section id="forgot" class="page hidden">
+        <div class="auth-container">
+            <h1 class="auth-logo">CINEMA</h1>
+            <div class="lock-icon">🔒</div>
+            <h2>Quên mật khẩu?</h2>
+            <p class="auth-description">
+                Chức năng khôi phục mật khẩu qua email
+                đang được phát triển.
+            </p>
+            <button type="button" class="btn btn-outline full-width"
+                    data-page="login">
+                Quay lại đăng nhập
+            </button>
+        </div>
+    </section>
+
+    <!-- THÔNG TIN TÀI KHOẢN -->
+    <section id="profile" class="page hidden">
+        <div class="simple-page">
+            <h2>Thông tin tài khoản</h2>
+            <p id="profileName"></p>
+            <p id="profileEmail"></p>
+            <button type="button" class="btn btn-red"
+                    data-page="home">
+                Quay lại trang chủ
+            </button>
+        </div>
+    </section>
+
+    <!-- VÉ CỦA TÔI -->
+    <section id="tickets" class="page hidden">
+        <div class="simple-page">
+            <h2>Vé của tôi</h2>
+            <p>Chức năng quản lý vé đang được phát triển.</p>
+            <button type="button" class="btn btn-red"
+                    data-page="home">
+                Quay lại trang chủ
+            </button>
+        </div>
+    </section>
+
+</main>
+
+<footer id="footer">
+    <div class="container footer-grid">
+        <div>
+            <h2 class="logo">CINEMA</h2>
+            <p>Hệ thống đặt vé xem phim trực tuyến.</p>
+            <p>Mang đến trải nghiệm điện ảnh tuyệt vời.</p>
+        </div>
+
+        <div>
+            <h3>Liên kết nhanh</h3>
+            <p>Trang chủ</p>
+            <p>Phim đang chiếu</p>
+            <p>Phim sắp chiếu</p>
+            <p>Lịch chiếu</p>
+        </div>
+
+        <div>
+            <h3>Hỗ trợ khách hàng</h3>
+            <p>Hướng dẫn đặt vé</p>
+            <p>Chính sách bảo mật</p>
+            <p>Điều khoản sử dụng</p>
+        </div>
+
+        <div>
+            <h3>Liên hệ</h3>
+            <p>TP. Hồ Chí Minh</p>
+            <p>Email: Đang cập nhật</p>
+        </div>
+    </div>
+
+    <div class="copyright">
+        © 2026 CINEMA. All rights reserved.
+    </div>
+</footer>
+
+</body>
+</html>
